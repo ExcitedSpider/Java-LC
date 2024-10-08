@@ -8,17 +8,16 @@ import java.util.Set;
 public class A15SumofThree {
   
 
+  // This can ac and understandable
   public List<List<Integer>> threeSum(int[] nums) {
     Arrays.sort(nums);
 
-    List<List<Integer>> result = new ArrayList<>(); 
-    // solution strings, use to avoid duplicated
-    // can ac but terrible performance
-    Set<String> sStrings = new HashSet<>();
+    Set<List<Integer>> result = new HashSet<>();
 
     for (int i = 0; i < nums.length; i++) {
+      // it is impossible to find a solution if the first num is positive
       if(nums[i] > 0) {
-        return result;
+        return new ArrayList<>(result);
       }
 
       int left = i + 1;
@@ -28,12 +27,11 @@ public class A15SumofThree {
         var sum = nums[i] + nums[left] + nums[right];
         if(sum == 0) {
           var solution = Arrays.asList(nums[i], nums[left], nums[right]);
-          if(sStrings.contains(solution.toString())) {
+          if(result.contains(solution)) {
             right --;
             left ++;
           }else {
             result.add(solution);
-            sStrings.add(solution.toString());
             right --;
             left ++;
           }
@@ -45,6 +43,6 @@ public class A15SumofThree {
         }
       }
     }
-    return result;
+    return new ArrayList<>(result);
   }
 }
