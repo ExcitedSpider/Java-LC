@@ -16,8 +16,12 @@ public class A77Combinations {
   private void combine(int n, int k, int least, LinkedList<Integer> path) {
     if(path.size() == k) {
       solution.add(new ArrayList<>(path));
+    } else if(k - path.size() > n - least + 1) {
+      // I need to take k - path.size() from n - least + 1 integers
+      // so it at least requires left <= right
+      return;
     } else {
-      for(var i = least; i <= n; i++) {
+      for(var i = least; i <= n ; i++) {
         path.push(i);
         combine(n, k, i + 1, path);
         path.pop();
