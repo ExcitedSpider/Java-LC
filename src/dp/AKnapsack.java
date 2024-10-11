@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class AKnapsack {
   public int knapsack(int n, int w, int[] profit, int[] weight) {
     var memo = new int[n][w + 1];
+    // initialization
     for(var row: memo) {
       Arrays.fill(row, -1);
     }
@@ -18,6 +19,7 @@ public class AKnapsack {
     return knapsack(n - 1, w, profit, weight, memo);
   }
 
+  // λ(i, j) = max λ(i-1, j) (profit[i] + λ(j - w[i]))
   private int knapsack(int n, int w, int[] profit, int[] weight, int[][] memo) {
     if(n < 0 || w < 0) return 0;
     if(memo[n][w] != -1) return memo[n][w];
