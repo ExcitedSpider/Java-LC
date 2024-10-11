@@ -11,6 +11,7 @@ public class A746MinCostStairs {
 
   }
 
+  // λ(n) = min ((cost (n - 1)) * (λ (n - 1))) (cost (n - 2) * λ(n - 2))
   public int minCostClimbingStairs(int n, int[] cost, Map<Integer, Integer> memo) {
     if (n <= 1)
       return 0;

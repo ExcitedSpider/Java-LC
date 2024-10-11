@@ -12,6 +12,7 @@ public class A62UniquePaths {
     return uniquePaths(m - 1, n - 1, memo);
   }
 
+  // λ(m, n) = λ(m, n-1) + λ(m-1, n)
   public int uniquePaths(int m, int n, int [][] memo) {
     if(m == 0 && n == 0) return 1;
     if(m < 0 || n < 0) return 0;

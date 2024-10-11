@@ -11,6 +11,12 @@ public class A63UniquePaths2 {
     return uniquePaths(new Coord(m-1, n-1), obstacleGrid, new HashMap<>());     
   }
 
+  // let g = obstacleGrid in 
+  // λ(m, n) = 
+  // | 0, when g(m, n) = 1 \/ (g(m, n-1) = 1) /\ g(m -1, n) = 1))
+  // | λ(m-1, n), when g(m, n-1) = 1
+  // | λ(m, n-1), when g(n-1, m) = 1
+  // | λ(m-1, n) + λ(m, n-1), otherwise
   private int uniquePaths(Coord coord, int[][] obstacleGrid, Map<Coord, Integer> memo) {
     int m = coord.m, n = coord.n;
 

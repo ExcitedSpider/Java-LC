@@ -7,6 +7,9 @@ public class A96UniqueBinarySearchTree {
     return numTrees(n, new HashMap<>());
   }
 
+  // Enumerate by which element is put on the root: 
+  // λ(n) = sum { λ(i-1) * λ(n-i) | i in [1, n] }
+  // where λ(i-1) is the num of possible left trees
   public int numTrees(int n, Map<Integer, Integer> memo) {
     if(n <= 1) return 1;
     if(memo.containsKey(n)) return memo.get(n);
