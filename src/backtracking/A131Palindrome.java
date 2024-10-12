@@ -39,17 +39,16 @@ public class A131Palindrome {
   private int[][] isPalindromeMemo;
 
   private boolean isPalindrome(char[] chars, int start, int end) {
-    if(isPalindromeMemo[start][end] != -1) {
+    if(start > end) return true;
+    else if(isPalindromeMemo[start][end] != -1) {
       return isPalindromeMemo[start][end] == 1 ? true: false;
+    } else if(chars[start] != chars[end]) {
+      isPalindromeMemo[start][end] = 0;
+      return false;
+    } else {
+      var res = isPalindrome(chars, start + 1, end - 1);
+      isPalindromeMemo[start][end] = res ? 1 : 0;
+      return res;
     }
-
-    for (int i = start, j = end; i <= j; i++, j--) {
-      if(chars[i] != chars[j]) {
-        isPalindromeMemo[start][end] = 0;
-        return false;
-      }
-    }
-    isPalindromeMemo[start][end] = 1;
-    return true;
   }
 }
