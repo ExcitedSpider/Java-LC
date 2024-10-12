@@ -9,6 +9,11 @@ public class A131Palindrome {
   private List<List<String>> ans;
 
   public List<List<String>> partition(String s) {
+    isPalindromeMemo = new int[s.length()][s.length()];
+    for(var row: isPalindromeMemo) {
+      Arrays.fill(row, -1);
+    }
+
     ans = new ArrayList<>();
     partition(s.toCharArray(), 0, new LinkedList<>());
 
@@ -30,12 +35,21 @@ public class A131Palindrome {
     }
   }
 
+  // 1 for true, 0 for false, -1 for uncomputed
+  private int[][] isPalindromeMemo;
+
   private boolean isPalindrome(char[] chars, int start, int end) {
+    if(isPalindromeMemo[start][end] != -1) {
+      return isPalindromeMemo[start][end] == 1 ? true: false;
+    }
+
     for (int i = start, j = end; i <= j; i++, j--) {
       if(chars[i] != chars[j]) {
+        isPalindromeMemo[start][end] = 0;
         return false;
       }
     }
+    isPalindromeMemo[start][end] = 1;
     return true;
   }
 }
