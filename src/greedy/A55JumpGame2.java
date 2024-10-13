@@ -3,6 +3,9 @@ package greedy;
 import java.util.Arrays;
 
 public class A55JumpGame2 {
+  // this is a dp approach
+  // the performance is worse than simply greedy
+  // but fun
   public boolean canJump(int[] nums) {
     int [] memo = new int[nums.length];
     Arrays.fill(memo, -1);
