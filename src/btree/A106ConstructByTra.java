@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
+// Construct by traverse output
 public class A106ConstructByTra {
   public TreeNode buildTree(int[] inorder, int[] postorder) {
     Function<int[], List<Integer>> box = ints -> Arrays.stream(ints).boxed().toList();
