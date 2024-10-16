@@ -2,28 +2,48 @@ package btree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class A258BtreePaths {
-
-  public List<String> binaryTreePaths(TreeNode node) {
+   public List<String> binaryTreePaths(TreeNode node) {
     List<String> result = new ArrayList<>();
-    if (node == null)
-      return result;
-    if (node.left == null && node.right == null) {
-      result.add(Integer.toString(node.val));
-      return result;
-    } else {
-      var lpaths = binaryTreePaths(node.left);
-      var rpaths = binaryTreePaths(node.right);
+    binaryTreePaths(node, new ArrayList<>(), result);
+    return result;
+  }
 
-      for (String path : lpaths) {
-        result.add(node.val + "->" + path);
-      }
-      for (String path : rpaths) {
-        result.add(node.val + "->" + path);
-      }
-      return result;
+  public void binaryTreePaths(TreeNode node, List<Integer> path, List<String> result) {
+    if (node == null)
+      return;
+
+    path.add(node.val);
+    if (node.left == null && node.right == null) {
+      result.add(pathToString(path));
+    } else {
+      binaryTreePaths(node.left, new ArrayList<>(path), result);
+      binaryTreePaths(node.right, new ArrayList<>(path), result);
+    }
+  }
+
+  private String pathToString(List<Integer> path) {
+    return path.stream().map(String::valueOf).collect(Collectors.joining("->"));
+  }
+
+  // Very declarative and self-proved
+  // However, perf is bad
+  public List<String> binaryTreePaths0(TreeNode node) {
+    if (node == null)
+      return List.of();
+    if (node.left == null && node.right == null) {
+      return List.of(Integer.toString(node.val));
+    } else {
+      var lpaths = binaryTreePaths0(node.left);
+      var rpaths = binaryTreePaths0(node.right);
+
+      return Stream
+          .concat(lpaths.stream(), rpaths.stream())
+          .map(str -> node.val + "->" + str)
+          .toList();
     }
   }
 
