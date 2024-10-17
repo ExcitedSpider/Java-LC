@@ -1,6 +1,7 @@
 package dp;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 // The Unbounded knapsack
 // https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/
@@ -13,20 +14,18 @@ public class KnapsackUb {
   }
 
   // the max profit of using a bag with capacity `cap` choosing from n items
-  // Unbounded: one item can be selected any times
+  // "Unbounded" means one item can be selected any times
   public int maxProfit0(int[] values, int[] weights, int cap, int[] memo) {
-    if (cap <= 0)
-      return 0;
-    if (memo[cap] != -1)
-      return memo[cap];
+    if (cap <= 0) return 0;
+    if (memo[cap] != -1) return memo[cap];
     var len = values.length;
 
-    int res = 0;
-    for (int i = 0; i < len; i++) {
-      if (cap >= weights[i]) {
-        res = Math.max(res, values[i] + maxProfit0(values, weights, cap - weights[i], memo));
-      }
-    }
+    // Check each item and find the most profitable one
+    int res = IntStream.range(0, len)
+        .filter(idx -> cap >= weights[idx])
+        .map(idx -> values[idx] + maxProfit0(values, weights, cap - weights[idx], memo))
+        .max()
+        .orElse(0);
 
     memo[cap] = res;
     return res;
@@ -81,6 +80,4 @@ public class KnapsackUb {
     var outcome = instance.maxProfit(values, weights, 8);
     assert outcome == 110 : "Test case 5 failed";
   }
-
-
 }
