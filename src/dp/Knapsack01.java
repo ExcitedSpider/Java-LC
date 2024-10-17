@@ -2,7 +2,7 @@ package dp;
 import java.util.Arrays;
 
 // https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
-public class AKnapsack {
+public class Knapsack01 {
   public int knapsack(int n, int w, int[] profit, int[] weight) {
     var memo = new int[n][w + 1];
     // initialization
@@ -39,12 +39,12 @@ public class AKnapsack {
   }
 
   public static void main(String[] args) {
-    AKnapsack.case1();
-    AKnapsack.case2();
-    AKnapsack.case3();
-    AKnapsack.case4();
-    AKnapsack.case5();
-    AKnapsack.case6();
+    Knapsack01.case1();
+    Knapsack01.case2();
+    Knapsack01.case3();
+    Knapsack01.case4();
+    Knapsack01.case5();
+    Knapsack01.case6();
   }
 
   static void case1() {
@@ -52,7 +52,7 @@ public class AKnapsack {
     int[] weight = {10, 20, 30};
     int capacity = 50; // Maximum weight capacity
 
-    AKnapsack knapsack = new AKnapsack();
+    Knapsack01 knapsack = new Knapsack01();
     int maxProfit = knapsack.knapsack(profit.length, capacity, profit, weight);
     System.out.println("Max profit: " + maxProfit + ". Expected output: 220");
   }
@@ -62,7 +62,7 @@ public class AKnapsack {
     int[] weight = {5, 10, 15};
     int capacity = 0; // No capacity
     
-    AKnapsack knapsack = new AKnapsack();
+    Knapsack01 knapsack = new Knapsack01();
     int maxProfit = knapsack.knapsack(profit.length, capacity, profit, weight);
     System.out.println("Max profit: " + maxProfit + ". Expected output: 0");
     
@@ -73,7 +73,7 @@ public class AKnapsack {
     int[] weight = {1, 2, 3};
     int capacity = 6; // Larger capacity than total weights
     
-    AKnapsack knapsack = new AKnapsack();
+    Knapsack01 knapsack = new Knapsack01();
     int maxProfit = knapsack.knapsack(profit.length, capacity, profit, weight);
     System.out.println("Max profit: " + maxProfit + ". Expected output: 450");   
   
@@ -84,7 +84,7 @@ public class AKnapsack {
     int[] weight = {10, 20, 30};
     int capacity = 10; // Can only select one item
     
-    AKnapsack knapsack = new AKnapsack();
+    Knapsack01 knapsack = new Knapsack01();
     int maxProfit = knapsack.knapsack(profit.length, capacity, profit, weight);
     System.out.println("Max profit: " + maxProfit + ". Expected output: 50");
     
@@ -95,7 +95,7 @@ public class AKnapsack {
     int[] weight = {10, 20, 30};
     int capacity = 40; // Can select only two items
     
-    AKnapsack knapsack = new AKnapsack();
+    Knapsack01 knapsack = new Knapsack01();
     int maxProfit = knapsack.knapsack(profit.length, capacity, profit, weight);
     System.out.println("Max profit: " + maxProfit + ". Expected output: 40");
   }
@@ -105,7 +105,7 @@ public class AKnapsack {
     int[] weight = {1, 2, 3, 8, 7, 4, 5, 6, 9, 10};
     int capacity = 30; // Maximum weight capacity
 
-    AKnapsack knapsack = new AKnapsack();
+    Knapsack01 knapsack = new Knapsack01();
     int maxProfit = knapsack.knapsack(profit.length, capacity, profit, weight);
     System.out.println("Max profit: " + maxProfit + ". Expected output: 360");  
   }
