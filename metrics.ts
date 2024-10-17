@@ -1,6 +1,7 @@
 // deno run --allow-read metrics.ts
 
 // A script to count the solutions
+import { format } from "https://deno.land/std@0.224.0/datetime/format.ts";
 
 const targetPath = "src";
 
@@ -38,7 +39,7 @@ try {
 
   const sum = numOfEach.reduce((a, b) => a + b[0], 0);
 
-  console.log(`Num of solutions: ${sum}, in which:`)
+  console.log(`On this day: ${format(new Date(), "yyyy-MM-dd")}, the total num of solutions: ${sum}, in which:`)
 
   numOfEach.sort((a, b) => a[1].localeCompare(b[1])).forEach(topic => {
     console.log(`- ${topic[1]}: ${topic[0]}.`)
