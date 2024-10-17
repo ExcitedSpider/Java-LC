@@ -23,6 +23,7 @@ public class A90Substs2 {
     ans.add(new ArrayList<>(path));
     if(start > nums.length) return;
 
+    // this one can be made globally
     boolean[] used = new boolean[nums.length];
 
     for (int i = start; i < nums.length; i++) {
