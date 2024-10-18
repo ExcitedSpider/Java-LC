@@ -13,7 +13,9 @@ public class A347TopKFreqElem {
     Map<Integer, Integer> numFreqDict = new HashMap<>();
 
     for (int i : nums) {
-      numFreqDict.compute(i, ($_, v) -> v == null ? 1 : v + 1);
+      // same as:
+      // numFreqDict.compute(i, ($_, v) -> v == null ? 1 : v + 1);
+      numFreqDict.merge(i, 1, (oldVal, newVal) -> oldVal + 1);
     }
 
     PriorityQueue<Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
