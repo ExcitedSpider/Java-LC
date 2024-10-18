@@ -51,6 +51,7 @@ public class A239MaxWindowElm {
 // to keep the property,
 // we will remove all elements that smaller than the added one
 class MonotonicQueue {
+  // by benchmarking, linkedlist is more efficient than arraydeque
   Deque<Integer> deque = new LinkedList<>();
 
   Integer poll() {
