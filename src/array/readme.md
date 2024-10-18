@@ -1,0 +1,1 @@
+This package includes all consecutive sequential data structures, like arrays, stack, and queue. 
