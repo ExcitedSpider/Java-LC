@@ -18,14 +18,14 @@ class ListNode {
 }
 
 public class A206ReversedList {
-  private ListNode reverseList0(ListNode cur, ListNode next) {
-    if(next == null || cur == null) {
-      return cur;
+  private ListNode reverseList0(ListNode pre, ListNode cur) {
+    if(cur == null || pre == null) {
+      return pre;
     } 
 
-    var nn = next.next;
-    next.next = cur;
-    return reverseList0(next, nn);
+    var nn = cur.next;
+    cur.next = pre;
+    return reverseList0(cur, nn);
   }
 
   public ListNode reverseList(ListNode head) {
@@ -33,7 +33,7 @@ public class A206ReversedList {
       return head;
     } else {
       var next = head.next;
-      head.next = null;
+      head.next = null; // pay attention to this!
       return reverseList0(head, next);
     }
   }
