@@ -1,22 +1,22 @@
 package linkedlist;
 
-class ListNode {
-  public ListNode next;
+class MyListNode {
+  public MyListNode next;
   public int val;
 
-  public ListNode() {
+  public MyListNode() {
   }
 
-  public ListNode(int val) {
+  public MyListNode(int val) {
     this.val = val;
   }
 
-  public ListNode(int val, ListNode next) {
+  public MyListNode(int val, MyListNode next) {
     this.val = val;
     this.next = next;
   }
 
-  public static ListNode getNode(int index, ListNode head) {
+  public static MyListNode getNode(int index, MyListNode head) {
     if(head == null) {
       return null;
     } else if(index == 0) {
@@ -26,7 +26,7 @@ class ListNode {
     }
   }
 
-  public static String toString(ListNode head) {
+  public static String toString(MyListNode head) {
     StringBuilder builder = new StringBuilder(); 
     while (head != null) {
       builder.append(String.format("%d, ", head.val));
@@ -38,14 +38,14 @@ class ListNode {
 }
 
 class MyLinkedList {
-  private ListNode head;
+  private MyListNode head;
 
   public MyLinkedList() {
     head = null;
   }
 
   public int get(int index) {
-    var node = ListNode.getNode(index, head);
+    var node = MyListNode.getNode(index, head);
     if(node == null) {
       return -1;
     }else{
@@ -54,7 +54,7 @@ class MyLinkedList {
   }
 
   public void addAtHead(int val) {
-    var node = new ListNode();
+    var node = new MyListNode();
     node.val = val;
     node.next = head;
     head = node;
@@ -62,13 +62,13 @@ class MyLinkedList {
 
   public void addAtTail(int val) {
     if(this.head == null) {
-      this.head = new ListNode(val);
+      this.head = new MyListNode(val);
     } else {
       var ptr = head;
       while(ptr.next != null) {
         ptr = ptr.next;
       }
-      ptr.next = new ListNode(val);
+      ptr.next = new MyListNode(val);
     }
   }
 
@@ -78,12 +78,12 @@ class MyLinkedList {
       return;
     }
 
-    var node = ListNode.getNode(index - 1, head);
+    var node = MyListNode.getNode(index - 1, head);
     if(node == null) {
       return;
     }
     var next = node.next;
-    node.next = new ListNode(val, next);
+    node.next = new MyListNode(val, next);
   }
 
   public void deleteAtIndex(int index) {
@@ -95,7 +95,7 @@ class MyLinkedList {
       return;
     }
 
-    var node = ListNode.getNode(index - 1, head);
+    var node = MyListNode.getNode(index - 1, head);
     if(node == null || node.next == null) {
       return;
     }
