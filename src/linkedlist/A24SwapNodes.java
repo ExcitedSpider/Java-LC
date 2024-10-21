@@ -1,22 +1,5 @@
 package linkedlist;
 
-class ListNode {
-  int val;
-  ListNode next;
-
-  ListNode() {
-  }
-
-  ListNode(int val) {
-    this.val = val;
-  }
-
-  ListNode(int val, ListNode next) {
-    this.val = val;
-    this.next = next;
-  }
-}
-
 public class A24SwapNodes {
   private ListNode swapPairs0(ListNode pre) {
     if(pre == null || pre.next == null || pre.next.next == null) {

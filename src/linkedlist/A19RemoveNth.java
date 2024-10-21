@@ -1,22 +1,5 @@
 package linkedlist;
 
-class ListNode {
-  int val;
-  ListNode next;
-
-  ListNode() {
-  }
-
-  ListNode(int val) {
-    this.val = val;
-  }
-
-  ListNode(int val, ListNode next) {
-    this.val = val;
-    this.next = next;
-  }
-}
-
 public class A19RemoveNth {
   public ListNode removeNthFromEnd(ListNode head, int n) {
       var nhead = new ListNode(-1, head);
