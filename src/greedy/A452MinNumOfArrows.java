@@ -18,6 +18,7 @@ public class A452MinNumOfArrows {
     return minShots;
   }
 
+  // left & right: previous arrow shotting range
   private void iterate(int[][] points, int left, int right, int pos) {
     if (pos == points.length)
       return;
