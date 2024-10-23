@@ -12,6 +12,7 @@ public class A452MinNumOfArrows {
     minShots = 1;
     Arrays.sort(points, (a, b) -> Integer.compare(a[0], b[0])); // good! no need to consider overflow
 
+    // this works but java no TRO
     iterate(points, points[0][0], points[0][1], 1);
 
     return minShots;
