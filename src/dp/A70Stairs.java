@@ -3,7 +3,7 @@ package dp;
 import java.util.HashMap;
 import java.util.Map;
 
-public class A79Stairs {
+public class A70Stairs {
   public int climbStairs(int n) {
       Map<Integer, Integer> memo = new HashMap<>();
 
