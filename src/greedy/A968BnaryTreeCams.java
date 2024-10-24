@@ -23,11 +23,16 @@ public class A968BnaryTreeCams {
     traverse(root.right);
 
     if (stateOfNode(root.left) == 0 || stateOfNode(root.right) == 0) {
+      // both children don't have a camera
+      // we place a camera on it
       root.val = 2;
       numOfCam++;
     } else if (stateOfNode(root.left) == 2 || stateOfNode(root.right) == 2) {
+      // one of the children have a camera
       root.val = 1;
     } else {
+      // both children have been covered
+      // to get the min num of cam, we let its parent to place a camera
       root.val = 0;
     }
   }
