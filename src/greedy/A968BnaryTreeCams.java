@@ -43,6 +43,9 @@ public class A968BnaryTreeCams {
   private int stateOfNode(TreeNode node) {
     if (node == null)
       return 1;
+      // this line causes error, but i don't know why
+    // if(stateOfNode(node.left) == 2 || stateOfNode(node.right) == 2) 
+    //   return 1; 
     return node.val;
   }
 }
