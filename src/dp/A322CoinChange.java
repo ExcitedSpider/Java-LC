@@ -17,6 +17,7 @@ public class A322CoinChange {
     if (memo[amount] != -2)
       return memo[amount];
 
+    // using stream will make this code slower
     var res = Integer.MAX_VALUE;
     for (int i = 0; i < coins.length; i++) {
       var numOfCoins = coinChange(coins, amount - coins[i], memo);
