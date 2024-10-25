@@ -9,6 +9,8 @@ public class A405ToHex {
     // java does not have unsigned int
     // so we need to do it by adding a 2^32
     // because java use two's complement to represent signed int
+    // e.g. the binary representation of -1 is 0xFFFFFFFF
+    // and -1 + (1L << 32) = 0xFFFFFFFF
     long unsigned_num = num;
     if(num <0) unsigned_num = num + (1L << 32);
 
