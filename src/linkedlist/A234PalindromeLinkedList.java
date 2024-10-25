@@ -2,11 +2,13 @@ package linkedlist;
 
 public class A234PalindromeLinkedList {
   public boolean isPalindrome(ListNode head) {
-    if (head == null || head.next == null)
-      return true;
-    var mid = splitLinkedList(head);
+    if (head == null || head.next == null) return true;
+    var mid = splitListInHalf(head);
     mid = reverse(mid);
+    return isEqual(head, mid);
+  }
 
+  private boolean isEqual(ListNode head, ListNode mid) {
     while (mid != null) {
       if (head.val != mid.val)
         return false;
@@ -35,7 +37,7 @@ public class A234PalindromeLinkedList {
   }
 
   // pre => head != null && head.next != null && isEven #(len)
-  private ListNode splitLinkedList(ListNode head) {
+  private ListNode splitListInHalf(ListNode head) {
     var slowPtr = head;
     var fastPtr = head;
 
