@@ -1,3 +1,5 @@
+import type { ListNode } from "./ListNode.ts";
+
 function reorderList(head: ListNode | null): void {
     if(head == null) return ;
     let fastPtr = head;
@@ -76,14 +78,3 @@ function reverse(head: ListNode | null): ListNode | null {
         return fixpointReverse(cur, next);
     }    
 }
-
-
-class ListNode {
-    val: number
-    next: ListNode | null
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val === undefined ? 0 : val)
-        this.next = (next === undefined ? null : next)
-    }
-}
-
