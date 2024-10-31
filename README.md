@@ -17,14 +17,15 @@ Starts with 'B', they are from other sources. The header comment will include it
 
 # Metrics
 
-On this day: 2024-10-25, the total num of solutions: 110, in which:
-- array: 13.
+On this day: 2024-10-31, the total num of solutions: 121, in which:
+- array: 15.
 - backtracking: 12.
 - btree: 18.
-- dp: 18.
+- dp: 20.
+- frontend: 0.
 - graph: 2.
-- greedy: 19.
-- hashtable: 7.
-- linkedlist: 13.
-- math: 1.
-- string: 7.
+- greedy: 20.
+- hashtable: 8.
+- linkedlist: 15.
+- math: 2.
+- string: 9.
