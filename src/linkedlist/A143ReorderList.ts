@@ -1,4 +1,4 @@
-import type { ListNode } from "./ListNode.ts";
+import { ListNode } from "./ListNode.ts";
 
 function reorderList(head: ListNode | null): void {
     if(head == null) return ;
