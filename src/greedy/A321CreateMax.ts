@@ -1,4 +1,8 @@
 // 90 / 102 testcases passed
+// the problem is in merge
+// where it decides what should be done when two elements are equal
+// it only compares the next element
+// while it should compares until the end
 function maxNumber(nums1: number[], nums2: number[], k: number): number[] {
   // large list
   const llist = nums1.length > nums2.length ? nums1 : nums2;
