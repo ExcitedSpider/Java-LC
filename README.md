@@ -17,7 +17,7 @@ Starts with 'B', they are from other sources. The header comment will include it
 
 # Metrics
 
-On this day: 2024-11-10, the total num of solutions: 148, in which:
+On this day: 2024-11-10, the total num of solutions: 150, in which:
 - array: 21.
 - backtracking: 15.
 - btree: 24.
@@ -25,6 +25,6 @@ On this day: 2024-11-10, the total num of solutions: 148, in which:
 - graph: 3.
 - greedy: 22.
 - hashtable: 12.
-- linkedlist: 15.
+- linkedlist: 16.
 - math: 3.
-- string: 9.
+- string: 10.
